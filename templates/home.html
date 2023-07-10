@@ -1,0 +1,85 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Car Price Predictor</h1>
+   
+       <form action="{{ url_for('predict_data')}}" method="post">
+        <h1>
+            <legend>Predicts the price of a car</legend>
+        </h1>
+
+        <div class="mb-3">
+            <label class="form-label">Year of Purchase</label>
+            <input class="form-control" type="number" name="Year"
+                placeholder="Enter the Year of Purchase" min='2000' max='2023' />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Present Price</label>
+            <input class="form-control" type="number" name="Present_Price"
+                placeholder="Enter the Current Price in Lakhs" min='0' step=".01" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Kilometers Driven</label>
+            <input class="form-control" type="number" name="Kms_Driven"
+                placeholder="Enter the Kilometers Driven" min='0' />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fuel Type</label>
+            <select class="form-control" name="Fuel_Type" placeholder="Enter the Fuel Type" required>
+                <option class="placeholder" selected disabled value="">Select the fuel type</option>
+                <option value="Petrol">
+                    Petrol
+                </option>
+                <option value="Diesel">
+                    Diesel
+                </option>
+                <option value="CNG">
+                    CNG
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Seller Type</label>
+            <select class="form-control" name="Seller_Type" placeholder="Enter the Seller Type" required>
+                <option class="placeholder" selected disabled value="">Select the Seller Type</option>
+                <option value="Dealer">
+                    Dealer
+                </option>
+                <option value="Individual">
+                    Individual
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Transmission</label>
+            <select class="form-control" name="Transmission" placeholder="Enter the Transmission Type" required>
+                <option class="placeholder" selected disabled value="">Select the Transmission Type</option>
+                <option value="Manual">
+                    Manual
+                </option>
+                <option value="Automatic">
+                    Automatic
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Number of Owners</label>
+            <input class="form-control" type="number" name="Owner"
+                placeholder="Enter the NUmber of Owners" min='0' />
+        </div>
+
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict the Selling Price" required />
+        </div>
+    </form>
+    <h2>
+       The  predicted price is {{selling_price}}
+    </h2>
+   <body>
+</html>
