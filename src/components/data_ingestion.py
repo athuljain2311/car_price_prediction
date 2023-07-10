@@ -4,11 +4,12 @@ from src.exception import CustomException
 from src.logger import logging
 from data_transformation import DataTransformation
 import pandas as pd
+from model_trainer import ModelTrainer
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
-sys.path.append("D:\Projects\FullStack_Projects\car_price_prediction\src\components")
+#sys.path.append("D:\Projects\FullStack_Projects\car_price_prediction\src\components")
 
 # USEFUL JUST FOR DEFINING CLASS VARIABLES
 @dataclass
@@ -54,4 +55,7 @@ if __name__=='__main__':
     train_data,test_data = obj.initiate_data_ingestion()
 
     transformer_obj = DataTransformation()
-    transformer_obj.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_ = transformer_obj.initiate_data_transformation(train_data,test_data)
+
+    model_trainer = ModelTrainer()
+    logging.info(f"R2 Score : {model_trainer.initiate_model_trainer(train_array=train_arr,test_array=test_arr)}")

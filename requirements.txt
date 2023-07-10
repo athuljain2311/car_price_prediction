@@ -5,4 +5,5 @@ datetime
 matplotlib
 scikit-learn
 dill
--e .
+xgboost
+#-e .
